@@ -1,0 +1,10 @@
+{
+  "name": "Remix MoDE - Digital Material Design Helper",
+  "description": "Interactive 8-phase cyclic design framework (MoDE) for language teachers to plan, design, evaluate, and gamify digital learning materials.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

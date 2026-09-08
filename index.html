@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoDE - Digital Material Design Helper</title>
+    <meta name="description" content="Interactive 8-phase cyclic design framework (MoDE) for language teachers to plan, design, evaluate, and gamify digital learning materials. Conceived by Prof. Dr. Susana Cristina dos Reis (UFSM)." />
+    <meta property="og:title" content="MoDE - Digital Material Design Helper" />
+    <meta property="og:description" content="Interactive 8-phase cyclic design framework (MoDE) for language teachers to plan, design, evaluate, and gamify digital learning materials. Conceived by Prof. Dr. Susana Cristina dos Reis (UFSM)." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        var isResizeError = function(e) {
+          if (!e) return false;
+          var msg = (typeof e === 'string') ? e : (e.message || (e.error && e.error.message) || '');
+          return typeof msg === 'string' && (
+            msg.indexOf('ResizeObserver loop completed with undelivered notifications') !== -1 ||
+            msg.indexOf('ResizeObserver loop limit exceeded') !== -1
+          );
+        };
+        window.addEventListener('error', function(event) {
+          if (isResizeError(event)) {
+            event.stopImmediatePropagation();
+            if (event.preventDefault) event.preventDefault();
+            return true;
+          }
+        }, true);
+        window.addEventListener('unhandledrejection', function(event) {
+          if (isResizeError(event.reason)) {
+            event.stopImmediatePropagation();
+            if (event.preventDefault) event.preventDefault();
+            return true;
+          }
+        }, true);
+        if (window.ResizeObserver) {
+          var NativeRO = window.ResizeObserver;
+          window.ResizeObserver = function(callback) {
+            return new NativeRO(function(entries, observer) {
+              window.requestAnimationFrame(function() {
+                try {
+                  callback(entries, observer);
+                } catch (err) {
+                  if (!isResizeError(err)) throw err;
+                }
+              });
+            });
+          };
+          window.ResizeObserver.prototype = NativeRO.prototype;
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased font-sans">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
